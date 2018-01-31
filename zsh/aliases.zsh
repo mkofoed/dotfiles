@@ -72,3 +72,17 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 alias chrome="/Applications/Google\\ \\Chrome.app/Contents/MacOS/Google\\ \\Chrome"
 alias canary="/Applications/Google\\ Chrome\\ Canary.app/Contents/MacOS/Google\\ Chrome\\ Canary"
+
+# Bind caps-lock to control
+alias caps='setxkbmap -option ctrl:nocaps'
+
+# Edit this file
+alias aliases='vim ~/.dotfiles/zsh/aliases.zsh'
+
+# CD to dotfiles.
+alias dotfiles='cd ~/.dotfiles/'
+
+alias dr='dj runserver'
+
+# Remove .pyc-files in directory recursively
+alias nopyc="find . -name '*.pyc' -exec rm -f {} \;"
