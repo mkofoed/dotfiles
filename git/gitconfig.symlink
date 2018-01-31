@@ -1,9 +1,9 @@
 # gitconfig
 [user]
-    name = Nick Nisi
-    email = nick@nisi.org
+	name = Mikkel Kofoed
+	email = mikkel.kofoed@gmail.com
 [github]
-    user = nicknisi
+	user = mkofoed
 [init]
     templatedir = ~/.dotfiles/git/templates
 [alias]
@@ -140,7 +140,7 @@
     # do not warn about missing whitespace at EOF
     whitespace = nowarn
 [core]
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/kofoed/.gitignore_global
     pager = less -FXRS -x2
     editor = vim
     whitespace = cr-at-eol

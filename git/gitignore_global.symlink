@@ -24,3 +24,7 @@ tscommand*.txt
 
 # npm things
 npm-debug.log
+ 
+.idea/
+.venv/
+*.pyc
