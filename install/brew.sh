@@ -11,6 +11,7 @@ echo "=============================="
 formulas=(
     ack
     diff-so-fancy
+    direnv
     dnsmasq
     fzf
     git
@@ -23,6 +24,7 @@ formulas=(
     nginx
     python
     python3
+    rbenv
     reattach-to-user-namespace
     the_silver_searcher
     tmux
