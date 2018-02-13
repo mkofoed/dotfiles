@@ -135,6 +135,8 @@ call plug#begin('~/.config/nvim/plugged')
 		let g:airline#extensions#tabline#tab_min_count = 2
 		" do not show open buffers in tabline
 		let g:airline#extensions#tabline#show_buffers = 0
+		" Show errors in airline from ALE
+		let g:airline#extensions#ale#enabled = 1
 	" }}}
 " }}}
 
@@ -144,9 +146,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" remap esc
 	inoremap jk <esc>
-
-	" wipout buffer
-	nmap <silent> <leader>b :bw<cr>
 
 	" shortcut to save
 	nmap <leader>, :w<cr>
@@ -300,6 +299,10 @@ call plug#begin('~/.config/nvim/plugged')
 	" detect indent style (tabs vs. spaces)
 	Plug 'tpope/vim-sleuth'
 
+    " Close buffers but keep splits
+    Plug 'moll/vim-bbye'
+	nmap <leader>b :Bdelete<cr>
+
     " Writing in vim {{{{
 		Plug 'junegunn/limelight.vim'
 		Plug 'junegunn/goyo.vim'
@@ -414,7 +417,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" ALE {{{
 		Plug 'w0rp/ale' " Asynchonous linting engine
-		let g:ale_change_sign_column_color = 1
+		let g:ale_change_sign_column_color = 0
 		let g:ale_sign_column_always = 1
 		let g:ale_sign_error = '✖'
 		let g:ale_sign_warning = '⚠'
@@ -507,7 +510,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'fatih/vim-go', { 'for': 'go' }
 	Plug 'timcharper/textile.vim', { 'for': 'textile' }
 	Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-	Plug 'tpope/vim-endwise', { 'for': [ 'ruby', 'bash', 'zsh' ]}
+	Plug 'tpope/vim-endwise', { 'for': [ 'ruby', 'bash', 'zsh', 'sh' ]}
 	Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 " }}}
 
