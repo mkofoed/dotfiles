@@ -86,3 +86,5 @@ alias dr='dj runserver'
 
 # Remove .pyc-files in directory recursively
 alias nopyc="find . -name '*.pyc' -exec rm -f {} \;"
+
+alias pcat='pygmentize -f terminal256 -O style=native -g'
