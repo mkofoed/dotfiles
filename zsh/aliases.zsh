@@ -22,6 +22,7 @@ alias la="ls -AF ${colorflag}"
 alias ll="ls -lFh ${colorflag}"
 alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
+alias ls='ls -FG'
 
 # Helpers
 alias grep='grep --color=auto'
