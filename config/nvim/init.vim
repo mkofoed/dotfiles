@@ -287,6 +287,14 @@ call plug#begin('~/.config/nvim/plugged')
 	vnoremap ∆ :m '>+1<cr>gv=gv
 	vnoremap ˚ :m '<-2<cr>gv=gv
 
+	vnoremap $( <esc>`>a)<esc>`<i(<esc>
+	vnoremap $[ <esc>`>a]<esc>`<i[<esc>
+	vnoremap ${ <esc>`>a}<esc>`<i{<esc>
+	vnoremap $" <esc>`>a"<esc>`<i"<esc>
+	vnoremap $' <esc>`>a'<esc>`<i'<esc>
+	vnoremap $\ <esc>`>o*/<esc>`<O/*<esc>
+	vnoremap $< <esc>`>a><esc>`<i<<esc>
+
 	" toggle cursor line
 	nnoremap <leader>i :set cursorline!<cr>
 
@@ -364,7 +372,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-repeat'
 
 	" .editorconfig support
-	Plug 'editorconfig/editorconfig-vim'
+	Plug 'edt itorconfig/editorconfig-vim'
 
 	" asynchronous build and test dispatcher
 	Plug 'tpope/vim-dispatch'
@@ -379,15 +387,55 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vim-scripts/matchit.zip'
 
 	" add end, endif, etc. automatically
-	Plug 'tpope/vim-endwise', { 'for': [ 'ruby', 'bash', 'zsh', 'sh', 'vim' ]}
+	Plug 'tpope/vim-endwise'
 
 	" detect indent style (tabs vs. spaces)
 	Plug 'tpope/vim-sleuth'
 
-    " Open selection in carbon.now.sh
-    Plug 'kristijanhusak/vim-carbon-now-sh'
 	" a simple tool for presenting slides in vim based on text files
 	Plug 'sotte/presenting.vim', { 'for': 'markdown' }
+
+	" Fancy startup screen for vim {{{
+	Plug 'mhinz/vim-startify'
+
+		" Don't change to directory when selecting a file
+		let g:startify_files_number = 5
+		let g:startify_change_to_dir = 0
+		let g:startify_custom_header = [ ]
+		let g:startify_relative_path = 1
+		let g:startify_use_env = 1
+
+		function! s:list_commits()
+			let git = 'git -C ' . getcwd()
+			let commits = systemlist(git . ' log --oneline | head -n5')
+			let git = 'G' . git[1:]
+			return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+		endfunction
+
+		" Custom startup list, only show MRU from current directory/project
+		let g:startify_lists = [
+		\  { 'type': 'dir',		  'header': [ 'Files '. getcwd() ] },
+		\  { 'type': function('s:list_commits'), 'header': [ 'Recent Commits' ] },
+		\  { 'type': 'sessions',  'header': [ 'Sessions' ]		 },
+		\  { 'type': 'bookmarks', 'header': [ 'Bookmarks' ]		 },
+		\  { 'type': 'commands',  'header': [ 'Commands' ]		 },
+		\ ]
+
+		let g:startify_commands = [
+		\	{ 'up': [ 'Update Plugins', ':PlugUpdate' ] },
+		\	{ 'ug': [ 'Upgrade Plugin Manager', ':PlugUpgrade' ] },
+		\ ]
+
+		let g:startify_bookmarks = [
+			\ { 'c': '~/code/dotfiles/config/nvim/init.vim' },
+			\ { 'z': '~/code/dotfiles/zsh/zshrc.symlink' }
+		\ ]
+
+		autocmd User Startified setlocal cursorline
+	" }}}
+
+	" Open selection in carbon.now.sh
+	Plug 'kristijanhusak/vim-carbon-now-sh'
 
 	" Close buffers but keep splits
 	Plug 'moll/vim-bbye'
@@ -409,9 +457,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 		" Toggle NERDTree
 		function! ToggleNerdTree()
-			if @% != "" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
+			if @% != "" && @% !~ "Startify" && (!exists("g:NERDTree") || (g:NERDTree.ExistsForTab() && !g:NERDTree.IsOpen()))
 				:NERDTreeFind
-			else 
+			else
 				:NERDTreeToggle
 			endif
 		endfunction
@@ -519,6 +567,8 @@ call plug#begin('~/.config/nvim/plugged')
 		\}
 		let g:ale_fixers = {}
 		let g:ale_fixers['javascript'] = ['prettier']
+        let g:ale_fixers['typescript'] = ['prettier', 'tslint']
+		let g:ale_fixers['json'] = ['prettier']
 		let g:ale_javascript_prettier_use_local_config = 1
 		let g:ale_fix_on_save = 0
 	" }}}
@@ -603,7 +653,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'fatih/vim-go', { 'for': 'go' }
 	Plug 'timcharper/textile.vim', { 'for': 'textile' }
 	Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-	Plug 'tpope/vim-endwise', { 'for': [ 'ruby', 'bash', 'zsh', 'sh' ]}
 	Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
 " }}}
 
