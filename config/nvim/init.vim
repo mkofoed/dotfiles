@@ -308,12 +308,6 @@ call plug#begin('~/.config/nvim/plugged')
 	nnoremap <silent> ^ g^
 	nnoremap <silent> $ g$
 
-	" inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-	map <leader>r :call RunCustomCommand()<cr>
-	" map <leader>s :call SetCustomCommand()<cr>
-	let g:silent_custom_command = 0
-
 	" helpers for dealing with other people's code
 	nmap \t :set ts=4 sts=4 sw=4 noet<cr>
 	nmap \s :set ts=4 sts=4 sw=4 et<cr>
@@ -372,7 +366,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-repeat'
 
 	" .editorconfig support
-	Plug 'edt itorconfig/editorconfig-vim'
+	Plug 'editorconfig/editorconfig-vim'
 
 	" asynchronous build and test dispatcher
 	Plug 'tpope/vim-dispatch'
@@ -492,11 +486,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 		if isdirectory(".git")
 			" if in a git project, use :GFiles
-			nmap <silent> <leader>t :GFiles --cached --others --exclude-standard<cr>
+			nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
 		else
 			" otherwise, use :FZF
 			nmap <silent> <leader>t :FZF<cr>
 		endif
+
+		nmap <silent> <leader>s :GFiles?<cr>
 
 		nmap <silent> <leader>r :Buffers<cr>
 		nmap <silent> <leader>e :FZF<cr>
@@ -530,7 +526,7 @@ call plug#begin('~/.config/nvim/plugged')
 			\ <bang>0 ? fzf#vim#with_preview('up:60%') : fzf#vim#with_preview('right:50%:hidden', '?'), <bang>0)
 		command! -bang -nargs=? -complete=dir Files
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-		command! -bang -nargs=? -complete=dir GFiles
+		command! -bang -nargs=? -complete=dir GitFiles
 			\ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 	" }}}
 
