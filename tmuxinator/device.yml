@@ -1,6 +1,6 @@
 # ~/.tmuxinator/plecto.yml
 
-name: livestats
+name: device
 root: ~/code/
 
 # Optional tmux socket
@@ -34,5 +34,5 @@ windows:
       layout: f0f6,274x82,0,0{137x82,0,0,12,136x82,138,0[136x41,138,0,13,136x40,138,42,14]}
       panes:
         -
-        - dr
-        - docker-compose up
+        -
+        -
