@@ -84,6 +84,7 @@ alias aliases='vim ~/.dotfiles/zsh/aliases.zsh'
 alias dotfiles='cd ~/.dotfiles/'
 
 alias dr='dj runserver'
+alias ds='dj shell'
 
 # Remove .pyc-files in directory recursively
 alias nopyc="find . -name '*.pyc' -exec rm -f {} \;"
