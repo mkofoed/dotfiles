@@ -83,5 +83,6 @@ alias dotfiles='cd ~/.dotfiles/'
 alias dr='dj runserver'
 alias ds='dj shell'
 alias dbs='dj dbshell'
+alias dw='dj rqworker default high low import_jobs'
 
 alias pcat='pygmentize -f terminal256 -O style=native -g'
