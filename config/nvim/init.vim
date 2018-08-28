@@ -613,7 +613,7 @@ call plug#begin('~/.config/nvim/plugged')
         let g:ale_echo_msg_format = '%severity% %s% [%linter%% code%]'
 
         let g:ale_linters = {
-        \   'javascript': ['eslint'],
+        \   'javascript': ['eslint', 'tsserver'],
         \   'typescript': ['tsserver', 'tslint'],
         \   'html': []
         \}
@@ -681,6 +681,7 @@ call plug#begin('~/.config/nvim/plugged')
 
         Plug 'mhartington/nvim-typescript', { 'for': 'typescript', 'do': './install.sh' }
         let g:nvim_typescript#diagnosticsEnable = 0
+        let g:nvim_typescript#max_completion_detail=100
         " Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'npm install' }
         " let g:tsuquyomi_completion_detail = 1
         " let g:tsuquyomi_disable_default_mappings = 1
@@ -717,6 +718,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
     Plug 'kchmck/vim-coffee-script', { 'for': 'coffeescript' }
     Plug 'nikvdp/ejs-syntax'
+    Plug 'ekalinin/Dockerfile.vim'
 " }}}
 
 call plug#end()

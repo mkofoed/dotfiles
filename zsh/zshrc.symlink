@@ -49,11 +49,6 @@ if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
-# install rbenv
-if command_exists rbenv; then
-    eval "$(rbenv init -)"
-fi
-
 # add a config file for ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
 
@@ -71,18 +66,14 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-if command_exists direnv; then
-    eval "$(direnv hook zsh)"
-fi
-
 if [ -z ${RELOAD}  ]; then
     export ZPLUG_HOME=/usr/local/opt/zplug
     source $ZPLUG_HOME/init.zsh
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
     zplug 'zsh-users/zsh-syntax-highlighting', defer:2
     zplug 'zsh-users/zsh-autosuggestions'
-    export NVM_AUTO_USE=false
-    export NVM_NO_USE=true
+    export NVM_AUTO_USE=true
+    # export NVM_NO_USE=true
     zplug 'lukechilds/zsh-nvm'
 
     if ! zplug check; then
