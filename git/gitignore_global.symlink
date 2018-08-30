@@ -28,3 +28,6 @@ npm-debug.log
 .idea/
 .venv/
 *.pyc
+node-modules/
+package.json
+package-lock.json
