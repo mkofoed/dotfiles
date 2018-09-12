@@ -24,10 +24,10 @@ tscommand*.txt
 
 # npm things
 npm-debug.log
+node_modules/
  
 .idea/
 .venv/
 *.pyc
-node-modules/
 package.json
 package-lock.json

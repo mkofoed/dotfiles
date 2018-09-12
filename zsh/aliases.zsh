@@ -84,5 +84,6 @@ alias dr='dj runserver'
 alias ds='dj shell'
 alias dbs='dj dbshell'
 alias dw='dj rqworker default high low import_jobs'
+alias sphinx='sphinx-autobuild source/ build/ -p 8005'
 
 alias pcat='pygmentize -f terminal256 -O style=native -g'
