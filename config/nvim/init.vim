@@ -121,7 +121,6 @@ call plug#begin('~/.config/nvim/plugged')
     " LightLine {{{
         Plug 'itchyny/lightline.vim'
         Plug 'nicknisi/vim-base16-lightline'
-        " Plug 'felixjung/vim-base16-lightline'
         let g:lightline = {
         \   'colorscheme': 'base16',
         \   'active': {
@@ -345,7 +344,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " General Functionality {{{
     " better terminal integration
-    " Plug 'wincent/terminus'
     " substitute, search, and abbreviate multiple variants of a word
     Plug 'tpope/vim-abolish'
 
@@ -675,7 +673,7 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
         Plug 'mhartington/nvim-typescript', { 'for': 'typescript', 'do': './install.sh' }
-        let g:nvim_typescript#diagnosticsEnable = 0
+        let g:nvim_typescript#diagnostics_enable = 0
         let g:nvim_typescript#max_completion_detail=100
     " }}}
 
@@ -726,8 +724,8 @@ call plug#end()
     syntax on
     filetype plugin indent on
     " make the highlighting of tabs and other non-text less annoying
-    highlight SpecialKey ctermfg=19
-    highlight NonText ctermfg=19
+    highlight SpecialKey ctermfg=19 guifg=#333333
+    highlight NonText ctermfg=19 guifg=#333333
 
     " make comments and HTML attributes italic
     highlight Comment cterm=italic term=italic gui=italic
