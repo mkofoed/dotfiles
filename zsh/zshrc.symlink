@@ -44,6 +44,9 @@ fi
 # adding path directory for custom scripts
 export PATH=$DOTFILES/bin:$PATH
 
+# adding path directory for custom scripts
+export PATH=/opt/local/pgsql/bin:$PATH
+
 # check for custom bin directory and add to path
 if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH

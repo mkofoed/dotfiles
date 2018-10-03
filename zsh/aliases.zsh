@@ -87,3 +87,6 @@ alias dw='dj rqworker default high low import_jobs'
 alias sphinx='sphinx-autobuild source/ build/ -p 8005'
 
 alias pcat='pygmentize -f terminal256 -O style=native -g'
+
+# Tmuxinator
+alias tx='tmuxinator'
