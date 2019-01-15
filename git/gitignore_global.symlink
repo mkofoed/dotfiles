@@ -20,7 +20,7 @@ Icon
 tscommand*.txt
 
 # nvm - the Node Version Manager
-.nvmrc
+#.nvmrc
 
 # npm things
 npm-debug.log

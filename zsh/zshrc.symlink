@@ -23,6 +23,7 @@ source "$ZSH/functions.zsh"
 source "$ZSH/git.zsh"
 source "$ZSH/tmux.zsh"
 source "$ZSH/z.zsh"
+source "$ZSH/virtualenv.zsh"
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc

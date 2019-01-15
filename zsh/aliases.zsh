@@ -80,6 +80,7 @@ alias aliases='vim ~/.dotfiles/zsh/aliases.zsh'
 alias dotfiles='cd ~/.dotfiles/'
 
 # Django shortcuts
+alias dj='python manage.py'
 alias dr='dj runserver'
 alias ds='dj shell'
 alias dbs='dj dbshell'
