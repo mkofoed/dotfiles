@@ -89,5 +89,7 @@ alias sphinx='sphinx-autobuild source/ build/ -p 8005'
 
 alias pcat='pygmentize -f terminal256 -O style=native -g'
 
+alias watch='sass --watch project/static/sass/project.scss project/static/css/project.css'
+
 # Tmuxinator
 alias tx='tmuxinator'
