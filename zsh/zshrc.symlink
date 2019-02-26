@@ -120,3 +120,5 @@ export LESS_TERMCAP_mh=$(tput dim)
 # https://github.com/koalaman/shellcheck/wiki
 #
 # export SHELLCHECK_OPTS=""
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
