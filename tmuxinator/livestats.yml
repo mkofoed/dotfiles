@@ -27,12 +27,12 @@ root: ~/code/
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux -CC attach -t Navitas
 
-pre_window: work
+pre_window: work && clear
 windows:
   - code:
       root: ~/code/livestats-project/
       layout: f0f6,274x82,0,0{137x82,0,0,12,136x82,138,0[136x41,138,0,13,136x40,138,42,14]}
       panes:
         -
-        - dr
-        - docker-compose up
+        -
+        -
