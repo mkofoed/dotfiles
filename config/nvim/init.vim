@@ -427,6 +427,7 @@ call plug#begin('~/.config/nvim/plugged')
         \ ]
 
         autocmd User Startified setlocal cursorline
+        nmap <leader>st :Startify<cr>
     " }}}
 
     " Close buffers but keep splits
@@ -591,6 +592,9 @@ call plug#begin('~/.config/nvim/plugged')
         let g:ale_set_highlights = 0
         let g:ale_change_sign_column_color = 0
         let g:ale_sign_column_always = 1
+        let g:ale_fix_on_save = 1
+        let g:ale_lint_delay = 1000
+        let g:ale_lint_on_text_changed = 'always'
         let g:ale_sign_error = '✖'
         let g:ale_sign_warning = '⚠'
         let g:ale_echo_msg_error_str = '✖'
@@ -639,6 +643,9 @@ call plug#begin('~/.config/nvim/plugged')
         \  'javascript.jsx': {
         \      'extends': 'jsx',
         \  },
+        \  'typescript.tsx': {
+        \      'extends': 'tsx'
+        \  }
         \}
 
         " match tags in html, similar to paren support
@@ -663,8 +670,8 @@ call plug#begin('~/.config/nvim/plugged')
     " }}}
 
     " TypeScript {{{
-        Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-        Plug 'ianks/vim-tsx', { 'for': 'typescript' }
+        Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
+        Plug 'ianks/vim-tsx', { 'for': ['typescript', 'typescript.tsx'] }
         Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
         Plug 'mhartington/nvim-typescript', { 'for': 'typescript', 'do': './install.sh' }
@@ -678,8 +685,14 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'groenewege/vim-less', { 'for': 'less' }
         Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
         Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-        Plug 'gko/vim-coloresque'
         Plug 'stephenway/postcss.vim', { 'for': 'css' }
+
+        Plug 'RRethy/vim-hexokinase'
+        let g:Hexokinase_highlighters = ['virtual']
+        let g:Hexokinase_refreshEvents = ['BufWritePost']
+        let g:Hexokinase_ftAutoload = ['css']
+        " let g:Hexokinase_virtualText = '█'
+        let g:Hexokinase_virtualText = '■'
     " }}}
 
     " markdown {{{
@@ -729,6 +742,11 @@ call plug#end()
     highlight xmlAttrib cterm=italic term=italic gui=italic
     " highlight Type cterm=italic term=italic gui=italic
     highlight Normal ctermbg=none
+
+    call deoplete#custom#option({
+    \ 'auto_complete_delay': 200,
+    \ 'auto_refresh_delay': 100
+    \ })
 
 " }}}
 
