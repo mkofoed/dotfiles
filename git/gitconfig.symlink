@@ -133,6 +133,8 @@
 [branch]
     # set up 'git pull' to rebase instead of merge
     autosetuprebase = always
+[pull]
+    rebase = true
 [diff]
     renames = copies
     mnemonicprefix = true
@@ -153,7 +155,7 @@
     extendRegexp = true
     lineNumber = true
 [credential]
-	helper = osxkeychain
+	helper = cache --timeout 3600
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
